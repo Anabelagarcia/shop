@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  background-color: rgba(244, 226, 241, 0.609);
+}
+
+.card {    
+  width: 300px;
+  text-align: center;
+  padding-inline: 10px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5%;
+  background-color: "#ccc";
+}
+
+
+.card h2 {
+  font-family: helvetica;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  padding: 10px;
+  background-size: 300px 150px;
+}
+
+.card p {
+  font-family: helvetica;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-decoration: none;
+  padding: 10px;
+  background-size: 300px 150px;
+}
+
+
+.card button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+}
+

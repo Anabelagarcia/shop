@@ -1,0 +1,28 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(230, 0, 238);
+}
+
+.Navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Navbar li {
+  list-style-type: none;
+  padding: 10px;
+}
+
+
+/* .Navbar {
+  background-color: #46acc2;
+  display: flex;
+  padding: 16px;
+  padding-right: 8px;
+  margin-left: auto;
+  font-family: sans-serif;
+  color: white;
+  flex-direction: column;
+} */
