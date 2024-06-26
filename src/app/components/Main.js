@@ -22,7 +22,7 @@ export default async function Main() {
     getProduct();
   },[])
 
-  if(listProduct[0] == null){
+  if(listProducts[0] == null){
     return <Spinner/>
   }
 
@@ -34,36 +34,34 @@ export default async function Main() {
       const newList = [...listProducts].sort((a,b) => b.title.localeCompare(a.title));
       setListProducts(newList);
       }
+
       const orderPriceMaior = () => {
         const newList= [...listProducts].sort((a,b) => a.price - b.price);
         setListProducts(newList);
       }
-      const orderPriceMenor = () => {
-        const newList= [...listProducts].sort((a,b) => a.price - b.price);
-        setListProducts(newList);
-      }
 
-        listAux = listAux.reverse();
-        setListProduct(listAux);
+      const orderPriceMenor = () => {
+        let newList= [...listProducts].sort((a,b) => a.price - b.price); 
+        newList = newList.reverse();
+        setListProducts(newList);
         }
         
         const searchText = (text) => {
         setSearch(text);
         
-        if (text.tria() == “”){
-        setListProduct(listComplete);
+        if (text.trim() == ""){
+        setListProducts(listComplete);
         return
         }
         
-        const newList = listProduct.filter((product) =>
-        product.title.toUpperCase().tria().includes(search.toUpperCase().tria()
-        setListProduct(newList);
+        const newList = listProducts.filter((product) => product.title.toUpperCase().trim().includes(search.toUpperCase().trim()))
+        setListProducts(newList);
         }
         
       return (
         <>
         <div className={styles.ordernar}>
-
+          <input type="text" value={search} onChange={(event)=> searchText(event.target.value)}/>
           <div>
           <h4 style={{display:"inline", paddingRight:"10px"}}>Classificar por:</h4>
           <button onClick={orderAZ}>A a Z</button>
