@@ -5,11 +5,11 @@ export default function Header() {
   return (
     <div class={styles.Navbar}>
       <div>
-        <h2 style={{ display: "inline", textAlign: "center" }}>Shop</h2>
+        <h2 style={{ display: "inline", textAlign: "center" }}>Brand</h2>
         <Image width={100} height={100} src="https://img.freepik.com/vetores-gratis/design-de-logotipo-local-de-loja-desenhada-a-mao_23-2149575766.jpg" />
       </div>
       <div>
-        <h1>Shop melhor que Shoppee</h1>
+        <h1>Brand</h1>
       </div>
       <nav class="Navbar__Items">
         <ul>

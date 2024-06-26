@@ -3,27 +3,29 @@ import styles from "../components/main.module.css";
 import { Image } from "next/image";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
+import ErrorGetData from "./ErrorGetData";
 
 export default function Main() {
 
   const [listProducts, setListProducts] = useState([]);
   const [listComplete, setListComplete] = useState([]);
   const [search, setSearch] = useState("");
+  const [errorFetch, setErrorFetch] = useState(false);
 
   useEffect(() => {
     const getProduct = async () => {
+      try{
 
       const response = await fetch("https://fakestoreapi.com/products");
       const data = await response.json();
       setListProducts(data);
       setListComplete(data);
+      }catch{
+        setErrorFetch(true);
+      }
     }
     getProduct();
   }, [])
-
-  if (listComplete[0] == null) {
-    return <Spinner />
-  }
 
   const orderAZ = () => {
     const newList = [...listProducts].sort((a, b) => b.title.localeCompare(a.title));
@@ -56,6 +58,16 @@ export default function Main() {
     const newList = listProducts.filter((product) => product.title.toUpperCase().trim().includes(search.toUpperCase().trim()))
     setListProducts(newList);
   }
+  if (errorFetch == true){
+    return <ErrorGetData/>
+  }
+    if (listComplete[0] == null){
+      return(
+        <main className={styles.main}>
+          <Spinner/>
+        </main>
+      )
+    }
 
   return (
     <>
