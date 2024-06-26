@@ -4,6 +4,7 @@ import { Image } from "next/image";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import ErrorGetData from "./ErrorGetData";
+import Link from "next/link";
 
 export default function Main() {
 
@@ -83,6 +84,8 @@ export default function Main() {
 
       </div>
 
+     
+     
       <main className={styles.main}>
         {listProducts.map((product) => (
           <div className={styles.card} key={product.id}>
@@ -94,7 +97,11 @@ export default function Main() {
              
               <p style={{ fontSize: 20 }}>{product.description}</p>
               <p style={{ fontSize: 20 }}>Categoria: {product.category}</p>
-              <button>Compre aqui!</button>
+              <Link href={`/product/${product.id}`}>
+                <span>Compre</span>
+              </Link>
+            
+              
             </div>
           </div>
         ))}
